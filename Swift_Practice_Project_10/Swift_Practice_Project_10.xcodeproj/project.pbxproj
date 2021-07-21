@@ -15,6 +15,8 @@
 		27ECDAC026A82367009D98FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27ECDABE26A82367009D98FA /* LaunchScreen.storyboard */; };
 		27ECDACB26A82367009D98FA /* Swift_Practice_Project_10Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ECDACA26A82367009D98FA /* Swift_Practice_Project_10Tests.swift */; };
 		27ECDAD626A82367009D98FA /* Swift_Practice_Project_10UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ECDAD526A82367009D98FA /* Swift_Practice_Project_10UITests.swift */; };
+		27ECDAE426A827F4009D98FA /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ECDAE326A827F4009D98FA /* PersonCell.swift */; };
+		27ECDAE626A853E1009D98FA /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ECDAE526A853E1009D98FA /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		27ECDAD126A82367009D98FA /* Swift_Practice_Project_10UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Swift_Practice_Project_10UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27ECDAD526A82367009D98FA /* Swift_Practice_Project_10UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Practice_Project_10UITests.swift; sourceTree = "<group>"; };
 		27ECDAD726A82367009D98FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27ECDAE326A827F4009D98FA /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonCell.swift; path = "Custom Classes/CollectionViewCells/PersonCell.swift"; sourceTree = "<group>"; };
+		27ECDAE526A853E1009D98FA /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Person.swift; path = "Custom Classes/Person.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +106,12 @@
 				27ECDAB326A82365009D98FA /* AppDelegate.swift */,
 				27ECDAB526A82365009D98FA /* SceneDelegate.swift */,
 				27ECDAB726A82365009D98FA /* ViewController.swift */,
+				27ECDAE526A853E1009D98FA /* Person.swift */,
+				27ECDAE326A827F4009D98FA /* PersonCell.swift */,
 				27ECDAB926A82365009D98FA /* Main.storyboard */,
-				27ECDABC26A82367009D98FA /* Assets.xcassets */,
 				27ECDABE26A82367009D98FA /* LaunchScreen.storyboard */,
 				27ECDAC126A82367009D98FA /* Info.plist */,
+				27ECDABC26A82367009D98FA /* Assets.xcassets */,
 			);
 			path = Swift_Practice_Project_10;
 			sourceTree = "<group>";
@@ -258,8 +264,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27ECDAE626A853E1009D98FA /* Person.swift in Sources */,
 				27ECDAB826A82365009D98FA /* ViewController.swift in Sources */,
 				27ECDAB426A82365009D98FA /* AppDelegate.swift in Sources */,
+				27ECDAE426A827F4009D98FA /* PersonCell.swift in Sources */,
 				27ECDAB626A82365009D98FA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
