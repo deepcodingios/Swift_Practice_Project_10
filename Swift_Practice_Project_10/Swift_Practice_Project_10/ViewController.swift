@@ -15,6 +15,19 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
+        let defaults = UserDefaults.standard
+
+        if let savedPeople = defaults.object(forKey: "people") as? Data{
+            let jsondecoder = JSONDecoder()
+
+            do {
+                people = try jsondecoder.decode([Person].self, from: savedPeople)
+            } catch  {
+                print("Failed to load people")
+            }
+        }
+
+
 //        collectionView.register(PersonCell.self, forCellWithReuseIdentifier: "PersonCell")
 
 //        collectionView.register(UINib.init(nibName: "PersonCell", bundle: nil), forCellWithReuseIdentifier: "PersonCell")
@@ -50,6 +63,8 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         DispatchQueue.main.async(){
             self.collectionView.reloadData()
         }
+
+        save()
 
         dismiss(animated: true)
     }
@@ -98,9 +113,21 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             person.name = newName
 
             self?.collectionView.reloadData()
+
+            self?.save()
         })
 
         present(ac, animated: true)
+    }
+
+    func save(){
+        let jsonEncoder = JSONEncoder()
+        if let savedPeople = try? jsonEncoder.encode(people) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedPeople, forKey: "people")
+        }else{
+            print("Failed to save people.")
+        }
     }
 }
 
