@@ -15,6 +15,15 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
+        let defaults = UserDefaults.standard
+
+        if let savedPeople = defaults.object(forKey: "people") as? Data {
+
+            if let decodedPeople = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedPeople) as? [Person]{
+                people = decodedPeople
+            }
+        }
+
 //        collectionView.register(PersonCell.self, forCellWithReuseIdentifier: "PersonCell")
 
 //        collectionView.register(UINib.init(nibName: "PersonCell", bundle: nil), forCellWithReuseIdentifier: "PersonCell")
@@ -50,6 +59,9 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         DispatchQueue.main.async(){
             self.collectionView.reloadData()
         }
+
+        /*Save the Image Picked*/
+        save()
 
         dismiss(animated: true)
     }
@@ -98,9 +110,18 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             person.name = newName
 
             self?.collectionView.reloadData()
+
+            self?.save()
         })
 
         present(ac, animated: true)
+    }
+
+    func save(){
+        if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: people, requiringSecureCoding: false) {
+            let defaults = UserDefaults.standard
+            defaults.setValue(savedData, forKey: "people")
+        }
     }
 }
 
